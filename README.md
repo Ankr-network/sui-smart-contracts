@@ -18,3 +18,5 @@ For example deploy of liquid_staking package
 ```bash
 sui client publish --gas-budget 300000000 liquid_staking
 ```
+### 5. Setup package
+Check README.md of deployed package for further instructions
