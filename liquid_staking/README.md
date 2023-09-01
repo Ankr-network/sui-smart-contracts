@@ -7,7 +7,7 @@
 2.2 Check the logs and put created objects to .env-{env}
 ### 3. Update validators set
 ```bash
-bash scripts/setup.bash ${env}
+bash scripts/update_validators.bash ${env}
 ```
 ### 4. Transfer ownerships
 ```bash
