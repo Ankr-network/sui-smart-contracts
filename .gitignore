@@ -27,7 +27,10 @@ sui.log.*
 .trace
 *.mvcov
 dist
-.env-*
 *.keystore
-testnet.yaml
-mainnet.yaml
+deployment.yaml
+
+# Envs
+.env-*
+!.env-testnet
+!.env-mainnet
