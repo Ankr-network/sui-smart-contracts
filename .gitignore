@@ -29,5 +29,4 @@ sui.log.*
 dist
 .env-*
 *.keystore
-testnet.yaml
-mainnet.yaml
+deployment.yaml
