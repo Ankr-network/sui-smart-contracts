@@ -1,12 +1,12 @@
 [package]
 name = "liquid_staking"
 version = "0.0.1"
-# published-at = ""
+# published-at = "0x9ada5e2775ece271d80c8731c3f388a5228d3d2c8bc312fbad9ab8b6d4c852fb"
 
 [dependencies]
-MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", rev = "mainnet-v1.8.2", subdir = "crates/sui-framework/packages/move-stdlib", override = true }
-Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "mainnet-v1.8.2", override = true }
-SuiSystem = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "main" }
+MoveStdlib = { git = "https://github.com/MystenLabs/sui.git", rev = "mainnet-v1.9.1", subdir = "crates/sui-framework/packages/move-stdlib", override = true }
+Sui = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-framework", rev = "mainnet-v1.9.1", override = true }
+SuiSystem = { git = "https://github.com/MystenLabs/sui.git", subdir = "crates/sui-framework/packages/sui-system", rev = "mainnet-v1.9.1" }
 
 [addresses]
 liquid_staking = "0x0"

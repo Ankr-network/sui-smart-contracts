@@ -9,7 +9,7 @@ module liquid_staking::native_pool {
     use std::vector;
     use sui::transfer;
     use sui::tx_context::{Self, TxContext};
-    use sui::object::{Self, UID, ID};
+    use sui::object::{Self, UID};
     use sui::sui::{SUI};
     use sui::balance::{Self};
     use sui::coin::{Self, Coin};
@@ -60,17 +60,6 @@ module liquid_staking::native_pool {
         sui_amount: u64
     }
 
-    struct TicketMintedEvent has copy, drop {
-        id: ID,
-        principal_value: u64,
-        frozen_to: u64,
-    }
-
-    struct TicketBurnedEvent has copy, drop {
-        id: ID,
-        principal_value: u64,
-    }
-
     struct MinStakeChangedEvent has copy, drop {
         prev_value: u64,
         new_value: u64
@@ -117,6 +106,11 @@ module liquid_staking::native_pool {
     struct MigratedEvent has copy, drop {
         prev_version: u64,
         new_version: u64,
+    }
+
+    struct RatioUpdatedEvent has copy, drop {
+        ratio: u256,
+
     }
 
     /* Objects */
@@ -334,6 +328,12 @@ module liquid_staking::native_pool {
         self.collected_rewards = self.collected_rewards + reward_fee;
 
         set_rewards_unsafe(self, value);
+    }
+
+    public entry fun publish_ratio(self: &NativePool, metadata: &Metadata<CERT>) {
+        event::emit(RatioUpdatedEvent {
+            ratio: get_ratio(self, metadata),
+        })
     }
 
     fun set_rewards_unsafe(self: &mut NativePool, value: u64) {
